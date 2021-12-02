@@ -23,7 +23,3 @@ django-cors-headers==3.9.0
 django-import-export==2.6.1
 djangorestframework==3.11.1
 django-rest-auth==0.9.5
-openpyxl==3.0.9
-Pillow==8.4.0
-pipwin==0.5.1
-PyAutoGUI==0.9.52
