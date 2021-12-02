@@ -30,7 +30,7 @@ SECRET_KEY = '9_$1rht$zxze4#rs1+1_4&uwtqfy#)&%0r=hia%@@igf)h5qtn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1','seedcell.herokuapp.com']
 
 
 # Application definition
@@ -117,6 +117,8 @@ DATABASES = {
     }
 }
 
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -153,6 +155,7 @@ USE_TZ = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:19002',
     'http://localhost:3000',
+    'https://seedcell.herokuapp.com/',
 ]
 
 # Static files (CSS, JavaScript, Images)
@@ -165,7 +168,5 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
-
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
