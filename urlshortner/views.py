@@ -26,6 +26,7 @@ def shortner(request,url):
 	Url.objects.create(url=url,murl=murl)
 	shorturl = Url.objects.filter(url=url,done=1)
 	serializer = UrlSerializer(shorturl, many=True)
+	Url.objects.filter(url=url,done=1).update(done=2)
 	return Response(serializer.data)
 	# slash="---"
 	# url = url.replace(slash, "/")

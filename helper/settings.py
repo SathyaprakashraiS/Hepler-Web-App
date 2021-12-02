@@ -155,7 +155,7 @@ USE_TZ = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:19002',
     'http://localhost:3000',
-    'https://seedcell.herokuapp.com/',
+    'https://seedcell.herokuapp.com',
 ]
 
 # Static files (CSS, JavaScript, Images)
