@@ -18,10 +18,19 @@ def shortnerr(request):
 
 @api_view(['GET'])
 def shortner(request,url):
+	Url.objects.all().delete()
 	slash="---"
-	url = url.replace(slash, "/")
+	murl = url.replace(slash, "/")
 	shortner=pyshorteners.Shortener()
-	serializer=shortner.tinyurl.short(url)
-	print("intha recieve panna url:",url)
-	print("returned this url: ",serializer)
-	return Response(serializer)
+	murl=shortner.tinyurl.short(murl)
+	Url.objects.create(url=url,murl=murl)
+	shorturl = Url.objects.filter(url=url)
+	serializer = UrlSerializer(shorturl, many=True)
+	return Response(serializer.data)
+	# slash="---"
+	# url = url.replace(slash, "/")
+	# shortner=pyshorteners.Shortener()
+	# serializer=shortner.tinyurl.short(url)
+	# print("intha recieve panna url:",url)
+	# print("returned this url: ",serializer)
+	# return Response(serializer)
