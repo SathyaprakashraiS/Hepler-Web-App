@@ -18,7 +18,7 @@ def shortnerr(request):
 
 @api_view(['GET'])
 def shortner(request,url):
-	Url.objects.all().update(done=2)
+	# Url.objects.all().update(done=2)
 	slash="---"
 	murl = url.replace(slash, "/")
 	shortner=pyshorteners.Shortener()
