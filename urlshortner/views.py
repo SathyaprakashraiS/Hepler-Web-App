@@ -18,13 +18,13 @@ def shortnerr(request):
 
 @api_view(['GET'])
 def shortner(request,url):
-	Url.objects.all().delete()
+	Url.objects.all().update(done=2)
 	slash="---"
 	murl = url.replace(slash, "/")
 	shortner=pyshorteners.Shortener()
 	murl=shortner.tinyurl.short(murl)
 	Url.objects.create(url=url,murl=murl)
-	shorturl = Url.objects.filter(url=url)
+	shorturl = Url.objects.filter(url=url,done=1)
 	serializer = UrlSerializer(shorturl, many=True)
 	return Response(serializer.data)
 	# slash="---"
